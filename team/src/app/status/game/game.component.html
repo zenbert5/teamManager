@@ -1,0 +1,28 @@
+
+
+<h1 class='display-5 text-center'>Player Status - Game {{ game }}</h1>
+<div id='player' class='text-center m-2'>
+    <div class='bg-info'>
+        <button class='btn btn-link text-light mx-3' (click)='setGame(1)'><u>Game 1</u></button><span> &#9734; </span>
+        <button class='btn btn-link text-light mx-3' (click)='setGame(2)'><u>Game 2</u></button><span> &#9734; </span>
+        <button class='btn btn-link text-light mx-3' (click)='setGame(3)'><u>Game 3</u></button>
+    </div>
+    <table class='table text-center'>
+        <thead>
+            <tr style='width: 100%'>
+                <th style='width: 30%'>Player Name</th>
+                <th style='width: 70%'>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let player of players'>
+                <td style='width: 30%'><h6 class='text-primary'>{{ player.name }}</h6></td>
+                <td style='width: 70%'>
+                    <button class='col-3 mx-4 btn btn-sm btn-outline-dark' [ngClass]='player.status[game] == "playing" ? "green" : "default"' (click)='setPlaying(player._id)'>Playing</button>
+                    <button class='col-3 mx-4 btn btn-sm btn-outline-dark' [ngClass]='player.status[game] == "notplay" ? "red" : "default"' (click)='setNotPlaying(player._id)'>Not Playing</button>
+                    <button class='col-3 mx-4 btn btn-sm btn-outline-dark' [ngClass]='player.status[game] == "undecided" ? "yellow" : "default"' (click)='setUndecided(player._id)'>Undecided</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

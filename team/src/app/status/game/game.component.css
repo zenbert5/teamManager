@@ -1,0 +1,21 @@
+
+#player {
+    border: 2px solid purple;
+    padding: 20px;
+}
+
+.green {
+    background-color: green;
+}
+
+.default {
+    background-color: none;
+}
+
+.yellow {
+    background-color:  yellow;
+}
+
+.red {
+    background-color: red;
+}

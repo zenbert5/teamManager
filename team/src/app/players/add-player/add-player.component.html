@@ -1,0 +1,32 @@
+
+<div id='player'>
+    <button class='btn btn-link mx-3' [routerLink]='["/players", "list"]'><u>List</u></button><span> &#9734; </span>
+    <button class='btn btn-default text-secondary mx-3'>Add Player</button>
+    
+    <div id='playerAdd'>
+        <form (submit)='addPlayer()'>
+            <h4>Add Player</h4>
+            <div class='form-group'>
+                <label for='player.name'>Player Name:</label>
+                <input type='text' class='form-control' name='player.name' required minlength='2' [(ngModel)]='player.name' #name='ngModel'/>
+                <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-sm alert-danger">
+                    <div [hidden]="!name.errors.required">
+                        Name is required
+                    </div>
+                    <div [hidden]="!name.errors.minlength">
+                        Name must be 2 characters or more
+                    </div>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label for='player.position'>Preferred Position:</label>
+                <input type='text' class='form-control' name='player.position' [(ngModel)]='player.position' />
+            </div>
+            <div class='form-group'>
+                <div *ngIf='name.valid'>
+                    <button type='submit' class='ng-valid form-control btn btn-block btn-success'>Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+
+<div id='player' class='text-center m-2'>
+    <div class='bg-secondary'>
+        <button class='btn btn-link text-dark mx-3'>List</button><span> &#9734; </span>
+        <button class='btn btn-link text-light mx-3' [routerLink]='["/players", "addPlayer"]'><u>Add Player</u></button>
+    </div>
+    <table class='table text-center'>
+        <thead>
+            <tr style='width: 100%'>
+                <th style='width: 40%'>Player Name</th>
+                <th style='width: 30%'>Preferred Position</th>
+                <th style='width: 30%'>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let player of players'>
+                <td style='width: 40%'><h5 class='text-info'>{{ player.name }}</h5></td>
+                <td style='width: 30%'><h6>{{ player.position }}</h6></td>
+                <td style='width: 30%'>
+                    <button class='mx-4 btn btn-sm btn-block btn-outline-danger' (click)='deletePlayer(player._id)'>Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

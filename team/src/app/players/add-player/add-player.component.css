@@ -1,0 +1,12 @@
+
+#player {
+    border: 2px solid purple;
+    padding: 20px;
+}
+
+#playerAdd {
+    border: 3px solid gray;
+    padding: 15px;
+    margin: 0 auto;
+    background: lightgray;
+}
